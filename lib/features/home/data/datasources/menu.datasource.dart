@@ -1,7 +1,7 @@
 import 'package:coronavirus2020/features/home/data/models/menu-item.model.dart';
 
 class MenuLocalDataSource {
-  List<MenuItemModel> getData() {
+  Future<List<MenuItemModel>> getData() async{
     final List<MenuItemModel> data = [
       MenuItemModel(label: 'Симптомы', route: '/'),
       MenuItemModel(label: 'Лечения', route: '/'),

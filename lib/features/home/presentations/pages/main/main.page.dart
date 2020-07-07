@@ -1,4 +1,5 @@
 import 'package:coronavirus2020/core/constants/pages-header.dart';
+import 'package:coronavirus2020/features/home/presentations/widgets/about-covid/about-covid.dart';
 import 'package:coronavirus2020/features/home/presentations/widgets/main-menu/main-menu.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +21,7 @@ class _HomePageState extends State<HomePage> {
     return Container(
       child: Column(
         children: [
+          AboutCovid(),
           MainMenu(),
         ],
       ),

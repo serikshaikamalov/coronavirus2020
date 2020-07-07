@@ -1,6 +1,12 @@
-import 'package:coronavirus2020/features/home/data/datasources/menu.datasource.dart';
 import 'package:coronavirus2020/features/home/data/models/menu-item.model.dart';
+import 'package:coronavirus2020/features/home/presentations/widgets/main-menu/bloc/menu-bloc.dart';
+import 'package:coronavirus2020/features/home/presentations/widgets/main-menu/bloc/menu-events.dart';
+import 'package:coronavirus2020/features/home/presentations/widgets/main-menu/bloc/menu-state.dart';
+import 'package:coronavirus2020/shared/widgets/empty.dart';
+import 'package:coronavirus2020/shared/widgets/error/error.dart';
+import 'package:coronavirus2020/shared/widgets/spinner/spinner.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MainMenu extends StatefulWidget {
   @override
@@ -8,22 +14,54 @@ class MainMenu extends StatefulWidget {
 }
 
 class _MainMenuState extends State<MainMenu> {
-  List<MenuItemModel> data = MenuLocalDataSource().getData();
-
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (ctx) => MainMenuBloc()
+              ..add(
+                LoadMainMenuEvent(),
+              ),
+          ),
+        ],
+        child: Builder(
+          builder: (context) {
+            return BlocBuilder(
+              bloc: BlocProvider.of<MainMenuBloc>(context),
+              builder: (ctx, MainMenuState state) {
+                // Loading
+                if (state is MainMenuLoading) {
+                  return AppSpinner();
+                }
+
+                // Loaded
+                if (state is MainMenuLoaded) {
+                  return buildContent(state.data);
+                }
+
+                // Error
+                if (state is MainMenuFailure) {
+                  return AppError(error: state.error);
+                }
+
+                // Default
+                return AppEmpty();
+              },
+            );
+          },
+        ));
   }
 
-  Widget buildContent() {
+  Widget buildContent(d) {
     return GridView.builder(
-      itemCount: data.length,
+      itemCount: d.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         mainAxisSpacing: 20,
         crossAxisSpacing: 20,
       ),
-      itemBuilder: (ctx, index) => buildMenuItem(data[index]),
+      itemBuilder: (ctx, index) => buildMenuItem(d[index]),
     );
   }
 

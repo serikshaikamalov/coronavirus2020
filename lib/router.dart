@@ -1,5 +1,5 @@
 import 'package:coronavirus2020/core/constants/routes.dart';
-import 'package:coronavirus2020/features/home/presentations/pages/main.page.dart';
+import 'package:coronavirus2020/features/home/presentations/pages/main/main.page.dart';
 import 'package:flutter/material.dart';
 
 class Router {
