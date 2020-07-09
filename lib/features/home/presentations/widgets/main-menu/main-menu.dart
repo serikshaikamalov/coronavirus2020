@@ -1,7 +1,9 @@
+import 'package:coronavirus2020/core/services/navigation.service.dart';
 import 'package:coronavirus2020/features/home/data/models/menu-item.model.dart';
 import 'package:coronavirus2020/features/home/presentations/widgets/main-menu/bloc/menu-bloc.dart';
 import 'package:coronavirus2020/features/home/presentations/widgets/main-menu/bloc/menu-events.dart';
 import 'package:coronavirus2020/features/home/presentations/widgets/main-menu/bloc/menu-state.dart';
+import 'package:coronavirus2020/locator.dart';
 import 'package:coronavirus2020/shared/widgets/empty.dart';
 import 'package:coronavirus2020/shared/widgets/error/error.dart';
 import 'package:coronavirus2020/shared/widgets/spinner/spinner.dart';
@@ -14,6 +16,8 @@ class MainMenu extends StatefulWidget {
 }
 
 class _MainMenuState extends State<MainMenu> {
+  NavigationService _navService = locator<NavigationService>();
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -68,32 +72,35 @@ class _MainMenuState extends State<MainMenu> {
   }
 
   Widget buildMenuItem(MenuItemModel m) {
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Align(
-            alignment: Alignment.topRight,
-            child: Image.asset(
-              'assets/images/${m.image}',
-              height: 30,
-              color: Colors.white.withOpacity(0.9),
+    return GestureDetector(
+      onTap: () => _navService.navigateTo(m.route),
+      child: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Align(
+              alignment: Alignment.topRight,
+              child: Image.asset(
+                'assets/images/${m.image}',
+                height: 30,
+                color: Colors.white.withOpacity(0.9),
+              ),
             ),
-          ),
-          Align(
-            alignment: Alignment.topLeft,
-            child: Text(
-              m.label,
-              style: TextStyle(color: Colors.white),
+            Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                m.label,
+                style: TextStyle(color: Colors.white),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
+        decoration: BoxDecoration(
+            border: Border.all(width: 1, color: Color(m.color)),
+            color: Color(m.color).withOpacity(0.8),
+            borderRadius: BorderRadius.all(Radius.circular(10))),
+        padding: EdgeInsets.all(7),
       ),
-      decoration: BoxDecoration(
-          border: Border.all(width: 1, color: Color(m.color)),
-          color: Color(m.color).withOpacity(0.8),
-          borderRadius: BorderRadius.all(Radius.circular(10))),
-      padding: EdgeInsets.all(7),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:coronavirus2020/core/constants/routes.dart';
 import 'package:coronavirus2020/features/home/data/models/menu-item.model.dart';
 
 class MenuLocalDataSource {
@@ -5,13 +6,13 @@ class MenuLocalDataSource {
     final List<MenuItemModel> data = [
       MenuItemModel(
         label: 'Симптомы',
-        route: '/',
+        route: Routes.symptomsPage,
         color: 0XFFEE4D23,
         image: 'cough.png',
       ),
       MenuItemModel(
-        label: 'Лечения',
-        route: '/',
+        label: 'Лечения/Профилактика',
+        route: Routes.preventionPage,
         color: 0XFF449B80,
         image: 'washing-hands.png',
       ),
