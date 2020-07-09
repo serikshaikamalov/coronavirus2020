@@ -1,3 +1,3 @@
 class PagesHeader {
-  static final String home = 'Все о Коронавирусе';
+  static final String home = 'COVID-19';
 }
