@@ -30,13 +30,13 @@ class MenuLocalDataSource {
       ),
       MenuItemModel(
         label: 'Вопросы-ответы',
-        route: '/',
+        route: '/faq',
         color: 0XFF0A0D19,
         image: 'question.png',
       ),
       MenuItemModel(
         label: 'Контакты',
-        route: '/',
+        route: Routes.callCenterPage,
         color: 0XFFE80E19,
         image: 'technical-support.png',
       ),
