@@ -2,6 +2,7 @@ import 'package:coronavirus2020/core/constants/routes.dart';
 import 'package:coronavirus2020/features/call-center/presentations/pages/call-center.page.dart';
 import 'package:coronavirus2020/features/faq/presentations/faq.page.dart';
 import 'package:coronavirus2020/features/home/presentations/pages/main/main.page.dart';
+import 'package:coronavirus2020/features/news/presentations/pages/news.page.dart';
 import 'package:coronavirus2020/features/prevention/presentations/pages/prevention.page.dart';
 import 'package:coronavirus2020/features/symptoms/presentations/pages/symptoms.page.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,8 @@ class Router {
         return MaterialPageRoute(builder: (_) => FaqPage());
       case Routes.callCenterPage:
         return MaterialPageRoute(builder: (_) => CallCenterPage());
+      case Routes.newsPage:
+        return MaterialPageRoute(builder: (_) => NewsPage());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

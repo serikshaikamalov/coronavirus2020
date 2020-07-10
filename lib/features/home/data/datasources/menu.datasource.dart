@@ -18,19 +18,19 @@ class MenuLocalDataSource {
       ),
       MenuItemModel(
         label: 'Статистика',
-        route: '/',
+        route: Routes.statisticsPage,
         color: 0XFF0A40E3,
         image: 'statistics.png',
       ),
       MenuItemModel(
         label: 'Новости',
-        route: '/',
+        route: Routes.newsPage,
         color: 0XFF4A2669,
         image: 'information.png',
       ),
       MenuItemModel(
         label: 'Вопросы-ответы',
-        route: '/faq',
+        route: Routes.faqPage,
         color: 0XFF0A0D19,
         image: 'question.png',
       ),

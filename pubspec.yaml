@@ -18,6 +18,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   percent_indicator: ^2.1.5
+  url_launcher: ^5.4.1
 
 
   # The following adds the Cupertino Icons font to your application.
