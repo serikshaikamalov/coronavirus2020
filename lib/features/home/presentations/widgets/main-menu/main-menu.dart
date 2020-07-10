@@ -58,16 +58,16 @@ class _MainMenuState extends State<MainMenu> {
   }
 
   Widget buildContent(d) {
-    return Expanded(
-      child: GridView.builder(
+    return GridView.builder(
+        physics: NeverScrollableScrollPhysics(),
         itemCount: d.length,
+        shrinkWrap: true,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             mainAxisSpacing: 20,
             crossAxisSpacing: 20,
             childAspectRatio: 1.8),
-        itemBuilder: (ctx, index) => buildMenuItem(d[index]),
-      ),
+        itemBuilder: (ctx, index) => buildMenuItem(d[index]),      
     );
   }
 

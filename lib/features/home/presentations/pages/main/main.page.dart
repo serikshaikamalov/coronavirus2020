@@ -1,6 +1,7 @@
 import 'package:coronavirus2020/core/constants/pages-header.dart';
 import 'package:coronavirus2020/features/home/presentations/widgets/about-covid/about-covid.dart';
 import 'package:coronavirus2020/features/home/presentations/widgets/main-menu/main-menu.dart';
+import 'package:coronavirus2020/features/home/presentations/widgets/statistics/staistics.dart';
 import 'package:coronavirus2020/shared/widgets/wrapper.dart';
 import 'package:flutter/material.dart';
 
@@ -29,24 +30,28 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget buildContent() {
-    return AppWrapperWidget.wrapPageWithPadding(
-      hasTop: false,
-      page: Column(
-        children: [
-          AboutCovid(),
-          SizedBox(height: 30),
-          Container(
-            width: double.infinity,
-            child: Text(
-              'Меню',
-              textAlign: TextAlign.start,
-              style:
-                  TextStyle(fontSize: 16, color: Colors.black.withOpacity(0.7)),
+    return SingleChildScrollView(
+      child: AppWrapperWidget.wrapPageWithPadding(
+        hasTop: false,
+        page: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            AboutCovid(),
+            SizedBox(height: 30),
+            Container(
+              width: double.infinity,
+              child: Text(
+                'Меню',
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                    fontSize: 16, color: Colors.black.withOpacity(0.7)),
+              ),
             ),
-          ),
-          SizedBox(height: 10),
-          MainMenu(),
-        ],
+            SizedBox(height: 10),
+            MainMenu(),
+            Statistics(),
+          ],
+        ),
       ),
     );
   }
