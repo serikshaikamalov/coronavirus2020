@@ -22,10 +22,11 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         backgroundColor: Color(0XFFAFAFA),
         elevation: 0,
-        actions: [IconButton(icon: Icon(Icons.menu), onPressed: null)],
+        actions: [
+          IconButton(icon: Icon(Icons.info), onPressed: null),
+        ],
       ),
       body: buildContent(),
-      drawer: Drawer(),
     );
   }
 

@@ -10,8 +10,8 @@ class _AboutCovidState extends State<AboutCovid> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          border: Border.all(width: 1, color: Color(0XFFE80E19)),
-          color: Color(0XFFEE4D23).withOpacity(0.9),
+          border: Border.all(width: 1, color: Color(0XFFE80E19).withOpacity(0.8)),
+          color: Color(0XFFEE4D23).withOpacity(0.8),
           borderRadius: BorderRadius.all(Radius.circular(10))),
       padding: EdgeInsets.all(7),
       child: Row(
@@ -27,7 +27,7 @@ class _AboutCovidState extends State<AboutCovid> {
     return Container(
       child: Image.asset(
         'assets/images/covid.png',
-        width: 100,
+        width: 100,        
       ),
     );
   }

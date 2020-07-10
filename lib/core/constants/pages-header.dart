@@ -3,4 +3,5 @@ class PagesHeader {
   static final String faq = 'Вопросы и ответы';
   static final String callCenter = 'Контакты горячей линии';
   static final String news = 'Новости';
+  static final String statistics = 'Статистика';
 }
